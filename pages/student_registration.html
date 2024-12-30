@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #343a40;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+    }
+
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar nav a:hover {
+      text-decoration: underline;
+    }
+
+    .registration-container {
+      display: flex;
+      width: 90%;
+      margin: 20px auto;
+      gap: 20px;
+    }
+
+    .student-info, .camera-section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+
+    .student-info img {
+      display: block;
+      width: 140px;
+      height: 150px;
+      margin: 10px auto;
+      border-radius: 50%;
+    }
+
+    .student-info form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    .student-info form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .student-info button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+
+    .student-info button:hover {
+      background-color: #0056b3;
+    }
+
+    .camera-section {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .camera-box {
+      width: 100%;
+      background-color: #f9f9f9;
+      border: 2px dashed #ccc;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      border-radius: 8px;
+    }
+
+    video {
+      width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+    }
+
+    .pose-guide {
+      width: 180px;
+      height: 150px;
+
+    }
+
+    .instructions {
+      text-align: center;
+    }
+
+    .instructions ul {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    .camera-section button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .camera-section button:hover {
+      background-color: #1c7c31;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div>
+      <h1>Attendance System</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./registration.html">ERP Registration</a>
+    </nav>
+  </header>
+
+  <main class="registration-container">
+    <div class="student-info">
+      <h2>Student Details</h2>
+      <img src="../GIFs/profile pic.png" alt="Student Image" id="studentImage">
+      <div id="studentDetails">
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Student ID:</strong> 12345678</p>
+
+        <p><strong>Section:</strong> A</p>
+        <p><strong>Semester:</strong> 7th</p>
+      </div>
+    </div>
+
+    <div class="camera-section">
+      <h2>Live Registration</h2>
+      <div class="camera-box">
+        <video autoplay muted id="liveCamera"></video>  
+        <button id="recordButton">Start Recording</button>
+      </div>
+    </div>
+    <div class="camera-section">
+        <h2>Instructions</h2>
+        <img src="../GIFs/headrotation.gif" alt="Pose Guide" class="pose-guide">
+          <p class="instructions">
+            <B>
+                Please record yourself doing the following poses for proper registration:</b>
+            
+            <ul>
+              <li>Face forward with a neutral expression.</li>
+              <li>Turn your head left and right.</li>
+              <li>Smile while looking forward.</li>
+              <li>Make sure there's enough Lighting in the room</li>
+              <li>Please record yourself with a plain background</li>
+            </ul>
+          </p>
+          
+        </div>
+      </div>
+  </main>
+
+  <script>
+    const liveCamera = document.getElementById('liveCamera');
+    const recordButton = document.getElementById('recordButton');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        liveCamera.srcObject = stream;
+      })
+      .catch(err => {
+        console.error('Error accessing camera:', err);
+      });
+
+    recordButton.addEventListener('click', () => {
+      alert('Recording started! Follow the instructions.');
+    });
+  </script>
+</body>
+</html>

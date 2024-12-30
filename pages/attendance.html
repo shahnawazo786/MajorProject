@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance System</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>Attendance System</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="registration.html">ERP Registration</a>
+    </nav>
+    
+  </header>
+  <main>
+    <section class="attendance-section">
+      <h2>Live Attendance</h2>
+      <div class="camera-feed">
+        <video id="liveFeed" autoplay></video>
+      </div>
+      <div class="attendance-info">
+        <h3>Attendance Status</h3>
+        <ul id="attendanceList"></ul>
+        <button id="downloadCsv">Download Attendance Report</button>
+      </div>      
+    </section>
+  </main>
+  <script src="../scripts/attendance.js"></script>
+</body>
+</html>

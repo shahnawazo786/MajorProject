@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERP Registration</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>ERP Registration</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="attendance.html">Attendance System</a>
+    </nav>
+  </header>
+  <main>
+    <section class="registration-section">
+      <h2>Register</h2>
+      <form id="registrationForm">
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+          <option value="">Select Role</option>
+          <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+        </select>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" placeholder="Enter your ID" required>
+
+        <button type="submit">Register</button>
+      </form>
+    </section>
+  </main>
+  <script src="../scripts/registration.js"></script>
+</body>
+</html>
